@@ -1,2 +1,8 @@
 @import "tailwindcss";
 @import "@heroui/styles";
+
+@layer components {
+    .cssContainer {
+        @apply container mx-auto max-w-11/12;
+    }
+}
