@@ -16,7 +16,7 @@ async function getNewsByCatagory(newsId) {
 export default async function NewsDetail({ params }) {
   const { newsId } = await params;
 
-  console.log(await getNewsByCatagory(newsId));
+  const newsDataByCatagory = await getNewsByCatagory(newsId);
 
   return (
     <section className="cssContainer grid grid-cols-12 gap-5  justify-center pb-12 ">
@@ -29,7 +29,11 @@ export default async function NewsDetail({ params }) {
       {/* End of catagory filter*/}
 
       {/* News Display area*/}
-      <div className="col-span-6 bg-red-700">News Cards...</div>
+      <div className="col-span-6 bg-red-700">
+        {newsDataByCatagory.map((news) => (
+          <h2 key={news._id}>{news.title}</h2>
+        ))}
+      </div>
       {/* End of news display*/}
 
       {/* Sidebar*/}
