@@ -1,17 +1,27 @@
 "use client";
 
+import { getCatagorys } from "@/api/getNewsData";
 import { Button } from "@heroui/react";
+import Link from "next/link";
 
-export default async function CatagorySelectorButton({ catagory, handleNews }) {
-  const news = await handleNews(catagory.category_id);
+// To get the news catagorys
+const catagorys = await getCatagorys();
+
+export default function CatagorySelectorButton() {
   return (
-    <Button
-      onClick={() => news()}
-      variant="tertiary"
-      fullWidth={true}
-      className={"rounded-none"}
-    >
-      {catagory.category_name}
-    </Button>
+    <>
+      {catagorys.map((catagory) => (
+        <Button
+          key={catagory.category_id}
+          variant="tertiary"
+          fullWidth={true}
+          className={"rounded-none"}
+        >
+          <Link href={`/news/${catagory.category_id}`}>
+            {catagory.category_name}
+          </Link>
+        </Button>
+      ))}
+    </>
   );
 }
