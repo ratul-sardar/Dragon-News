@@ -1,5 +1,3 @@
-"use client";
-
 import { getCatagorys } from "@/api/getNewsData";
 import { Button } from "@heroui/react";
 import Link from "next/link";

@@ -1,7 +1,23 @@
 import CatagorySelectorButton from "@/components/Home_Sections/CatagorySelectorButton/CatagorySelectorButton";
 import Sidebar from "@/components/Home_Sections/Sidebar/Sidebar";
 
-export default function NewsDetail() {
+// To get news by catagory
+async function getNewsByCatagory(newsId) {
+  const res = await fetch(
+    `https://openapi.programming-hero.com/api/news/category/${newsId}`,
+  );
+  const dataObj = await res.json();
+
+  const { data } = dataObj;
+
+  return data;
+}
+
+export default async function NewsDetail({ params }) {
+  const { newsId } = await params;
+
+  console.log(await getNewsByCatagory(newsId));
+
   return (
     <section className="cssContainer grid grid-cols-12 gap-5  justify-center pb-12 ">
       {/* Catagory selector*/}
@@ -13,7 +29,7 @@ export default function NewsDetail() {
       {/* End of catagory filter*/}
 
       {/* News Display area*/}
-      <div className="col-span-6 bg-red-700">d</div>
+      <div className="col-span-6 bg-red-700">News Cards...</div>
       {/* End of news display*/}
 
       {/* Sidebar*/}
