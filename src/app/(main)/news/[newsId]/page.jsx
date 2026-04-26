@@ -1,22 +1,12 @@
+import { getNewsByCatagory } from "@/api/getNewsData";
 import CatagorySelectorButton from "@/components/Home_Sections/CatagorySelectorButton/CatagorySelectorButton";
 import { NewsCard } from "@/components/Home_Sections/NewsCard/NewsCard";
 import Sidebar from "@/components/Home_Sections/Sidebar/Sidebar";
 
-// To get news by catagory
-async function getNewsByCatagory(newsId) {
-  const res = await fetch(
-    `https://openapi.programming-hero.com/api/news/category/${newsId}`,
-  );
-  const dataObj = await res.json();
-
-  const { data } = dataObj;
-
-  return data;
-}
-
 export default async function NewsDetail({ params }) {
   const { newsId } = await params;
 
+  // To get news by catagory
   const newsDataByCatagory = await getNewsByCatagory(newsId);
 
   return (

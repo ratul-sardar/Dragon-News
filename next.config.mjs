@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 
-const redirect_id = "1";
+const redirect_id = "01";
 
 const nextConfig = {
   /* config options here */

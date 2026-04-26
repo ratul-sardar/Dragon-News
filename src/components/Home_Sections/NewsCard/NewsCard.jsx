@@ -1,9 +1,9 @@
-import { Button, Card, CloseButton } from "@heroui/react";
+import { Button, Card, CloseButton, Link } from "@heroui/react";
 import Image from "next/image";
 
 export function NewsCard({ news }) {
   console.log(news);
-  const { thumbnail_url } = news;
+  const { _id, title, details, thumbnail_url } = news;
   return (
     <Card className="w-full items-stretch md:flex-row">
       <div className="relative h-[140px] w-full shrink-0 overflow-hidden rounded-2xl sm:h-[120px] sm:w-[120px]">
@@ -18,15 +18,10 @@ export function NewsCard({ news }) {
       </div>
       <div className="flex flex-1 flex-col gap-3">
         <Card.Header className="gap-1">
-          <Card.Title className="pr-8">Become an ACME Creator!</Card.Title>
-          <Card.Description>
-            Lorem ipsum dolor sit amet consectetur. Sed arcu donec id aliquam
-            dolor sed amet faucibus etiam.
+          <Card.Title className="pr-8">{title}</Card.Title>
+          <Card.Description className="line-clamp-3">
+            {details}
           </Card.Description>
-          <CloseButton
-            aria-label="Close banner"
-            className="absolute top-3 right-3"
-          />
         </Card.Header>
         <Card.Footer className="mt-auto flex w-full flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-col">
@@ -35,7 +30,9 @@ export function NewsCard({ news }) {
             </span>
             <span className="text-xs text-muted">Submission ends Oct 10.</span>
           </div>
-          <Button className="w-full sm:w-auto">Apply Now</Button>
+          <Button className="w-full sm:w-auto">
+            <Link href={`/newsdetail/${_id}`}>Apply Now</Link>
+          </Button>
         </Card.Footer>
       </div>
     </Card>
