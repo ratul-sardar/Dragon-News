@@ -1,3 +1,8 @@
+export const metadata = {
+  title: "Signup",
+  description: "Signup to Dragon News",
+};
+
 export default function Signup() {
   return (
     <section className="">

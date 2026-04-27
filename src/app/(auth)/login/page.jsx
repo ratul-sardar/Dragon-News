@@ -1,3 +1,8 @@
+export const metadata = {
+  title: "Login",
+  description: "Login to Dragon News",
+};
+
 export default function Login() {
   return (
     <>

@@ -3,6 +3,7 @@ import CatagorySelectorButton from "@/components/Home_Sections/CatagorySelectorB
 import { NewsCard } from "@/components/Home_Sections/NewsCard/NewsCard";
 import Sidebar from "@/components/Home_Sections/Sidebar/Sidebar";
 
+// Main Component Function
 export default async function NewsDetail({ params }) {
   const { newsId } = await params;
 
