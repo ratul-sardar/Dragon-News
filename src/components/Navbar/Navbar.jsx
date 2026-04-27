@@ -7,7 +7,7 @@ import Image from "next/image";
 const navLinkItems = [
   { name: "Home", link: "/" },
   { name: "About", link: "/about" },
-  { name: "Career", link: "career" },
+  { name: "Career", link: "/career" },
 ];
 
 export default function Navbar() {

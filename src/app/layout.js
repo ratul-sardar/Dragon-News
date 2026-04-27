@@ -11,8 +11,8 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "Dragon News",
-  description: "Create for next.js practice",
+  title: "Login",
+  description: "Login to Dragon News",
 };
 
 export default function RootLayout({ children }) {
